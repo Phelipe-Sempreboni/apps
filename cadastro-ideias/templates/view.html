@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Ideias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Ideias Cadastradas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tópico</th>
+                    <th>Descrição</th>
+                    <th>Resumo</th>
+                    <th>Cadastrado por</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for idea in ideas %}
+                <tr>
+                    <td>{{ idea.id }}</td>
+                    <td>{{ idea.topic }}</td>
+                    <td>{{ idea.description }}</td>
+                    <td>{{ idea.summary }}</td>
+                    <td>{{ idea.author }}</td>
+                    <td>
+                        <a href="{{ url_for('edit', id=idea.id) }}" class="button edit">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="button">Voltar</a>
+    </div>
+</body>
+</html>

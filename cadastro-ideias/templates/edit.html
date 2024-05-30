@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Ideia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Ideia</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="topic">Tópico</label>
+                <select id="topic" name="topic" required>
+                    <option value="Evolução" {% if idea.topic == 'Evolução' %}selected{% endif %}>Evolução</option>
+                    <option value="Modernização" {% if idea.topic == 'Modernização' %}selected{% endif %}>Modernização</option>
+                    <option value="Sustentação" {% if idea.topic == 'Sustentação' %}selected{% endif %}>Sustentação</option>
+                    <option value="Processos" {% if idea.topic == 'Processos' %}selected{% endif %}>Processos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição da Ideia</label>
+                <textarea id="description" name="description" rows="5" required>{{ idea.description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="summary">Resumo da Ideia</label>
+                <textarea id="summary" name="summary" rows="3" required>{{ idea.summary }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="author">Cadastrado por</label>
+                <select id="author" name="author" required>
+                    <option value="Anderson" {% if idea.author == 'Anderson' %}selected{% endif %}>Anderson</option>
+                    <option value="Erick" {% if idea.author == 'Erick' %}selected{% endif %}>Erick</option>
+                    <option value="Sempreboni" {% if idea.author == 'Sempreboni' %}selected{% endif %}>Sempreboni</option>
+                    <option value="Hugo" {% if idea.author == 'Hugo' %}selected{% endif %}>Hugo</option>
+                    <option value="Calazans" {% if idea.author == 'Calazans' %}selected{% endif %}>Calazans</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="submit">Salvar</button>
+                <a href="/view" class="button">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
