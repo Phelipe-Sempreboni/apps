@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de ideias - DQ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de ideias - DQ</h1>
+        <form id="idea-form" method="POST" action="/submit">
+            <div class="form-group">
+                <label for="topic">Tópico</label>
+                <select id="topic" name="topic" required>
+                    <option value="" disabled selected>Select a topic</option>
+                    <option value="Evolução">Evolução</option>
+                    <option value="Modernização">Modernização</option>
+                    <option value="Sustentação">Sustentação</option>
+                    <option value="Processos">Processos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição da Ideia</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="summary">Resumo da Ideia</label>
+                <textarea id="summary" name="summary" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="author">Cadastrado por</label>
+                <select id="author" name="author" required>
+                    <option value="" disabled selected>Select an author</option>
+                    <option value="Anderson">Anderson</option>
+                    <option value="Erick">Erick</option>
+                    <option value="Sempreboni">Sempreboni</option>
+                    <option value="Hugo">Hugo</option>
+                    <option value="Calazans">Calazans</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Verifica se há uma mensagem para exibir
+        const message = "{{ message }}";
+        const category = "{{ category }}";
+        if (message) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>
